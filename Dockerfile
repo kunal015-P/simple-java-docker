@@ -1,10 +1,5 @@
 # stable official Java runtime base image
-FROM openjdk:17-jdk-alpine
-
-# metadata
-LABEL maintainer="your-email@example.com"
-LABEL version="1.0"
-LABEL description="A simple Java application"
+FROM eclipse-temurin:17-jdk-alpine
 
 # working directory
 WORKDIR /app
@@ -14,6 +9,9 @@ COPY src/Main.java /app/Main.java
 
 # Compile the Java code
 RUN javac Main.java
+
+# Expose Port
+EXPOSE 8000
 
 # Run the Java application when the container starts
 CMD ["java", "Main"]
